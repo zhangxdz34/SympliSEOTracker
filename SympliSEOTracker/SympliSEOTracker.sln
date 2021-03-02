@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SympliSEOTracker", "SympliS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SympliSEOTracker.Repository", "..\SympliSEOTracker.Repository\SympliSEOTracker.Repository.csproj", "{F6494ECD-B4BE-4FA1-884A-DF21D6E5464F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SympliSEOTracker.Domain", "..\SympliSEOTracker.Domain\SympliSEOTracker.Domain.csproj", "{D5C742EA-D0B4-419B-BB28-904D0B16D2CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F6494ECD-B4BE-4FA1-884A-DF21D6E5464F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6494ECD-B4BE-4FA1-884A-DF21D6E5464F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6494ECD-B4BE-4FA1-884A-DF21D6E5464F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C742EA-D0B4-419B-BB28-904D0B16D2CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C742EA-D0B4-419B-BB28-904D0B16D2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C742EA-D0B4-419B-BB28-904D0B16D2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C742EA-D0B4-419B-BB28-904D0B16D2CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

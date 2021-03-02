@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SympliSEOTracker.Domain;
 using SympliSEOTracker.Models;
-using System;
-using System.Collections.Generic;
+using SympliSEOTracker.Service;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SympliSEOTracker.Controllers
@@ -12,15 +11,21 @@ namespace SympliSEOTracker.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ISearchResultUpdater _searchResultUpdater;
+        public HomeController(ILogger<HomeController> logger,
+            ISearchResultUpdater searchResultUpdater)
         {
             _logger = logger;
+            _searchResultUpdater = searchResultUpdater;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            DailySeoSearchResultSet result = await _searchResultUpdater.UpdateSearchResultAsync(new UpdateSearchResultRequestBindingModel());
+
+            DailySeoSearchResultSetViewModel vm = new DailySeoSearchResultSetViewModel(result);
+
+            return View(vm);
         }
 
         public IActionResult Privacy()

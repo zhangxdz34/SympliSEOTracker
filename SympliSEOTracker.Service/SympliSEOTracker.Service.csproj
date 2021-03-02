@@ -8,4 +8,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SympliSEOTracker.Domain\SympliSEOTracker.Domain.csproj" />
+    <ProjectReference Include="..\SympliSEOTracker.Repository\SympliSEOTracker.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

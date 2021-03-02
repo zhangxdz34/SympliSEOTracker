@@ -3,7 +3,12 @@
     using SympliSEOTracker.Domain;
     using System.Threading.Tasks;
 
-    public abstract class SearchEngineReader
+    public interface ISearchEngineReader
+    {
+        Task<SeoSearchResultSummary> GetResultsAsync();
+    }
+
+    public abstract class SearchEngineReader : ISearchEngineReader
     {
         protected SearchEngineReader(string searchTerm, string keyword)
         {

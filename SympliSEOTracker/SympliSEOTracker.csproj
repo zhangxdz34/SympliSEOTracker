@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SympliSEOTracker.Repository\SympliSEOTracker.Repository.csproj" />
+    <ProjectReference Include="..\SympliSEOTracker.Service\SympliSEOTracker.Service.csproj" />
   </ItemGroup>
 
 </Project>

@@ -15,7 +15,7 @@
         {
             CacheItemPolicy policy = new CacheItemPolicy
             {
-                AbsoluteExpiration = cacheAbsoluteExpiration ?? DateTime.Now.AddMinutes(5)
+                AbsoluteExpiration = cacheAbsoluteExpiration ?? DateTime.Now.AddDays(1)
             };
 
             _cache.Add(cacheKey, objectToCache, policy);

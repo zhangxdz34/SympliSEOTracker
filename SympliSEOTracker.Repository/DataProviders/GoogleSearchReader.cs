@@ -20,7 +20,7 @@ namespace SympliSEOTracker.Repository.DataProviders
 
         public override string GenerateSearchUrl()
         {
-            return $"https://www.google.com/search?q={SearchTerm}&num={MaxResultToRead}";
+            return $"https://www.google.com/search?q={SearchTerm}&num={100}";
         }
 
         public override async Task<SeoSearchResultSummary> GetResultsAsync()

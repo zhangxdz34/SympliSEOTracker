@@ -3,10 +3,31 @@ namespace SympliSEOTracker.Domain
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class DailySeoSearchResultSet
     {
-        public IEnumerable<SeoSearchResultSummary> Result { get; set; }
+        public List<SeoSearchResultSummary> ResultCollection { get; set; }
+
+        public bool IsUpdateRequired(DateTime currentDatetime)
+        {
+            if (ResultCollection == null || !ResultCollection.Any())
+            {
+                return true;
+            }
+
+            return ResultCollection.All(r => (currentDatetime - r.SearchedOnUtc) > TimeSpan.FromHours(1));
+        }
+
+        public void AddSearchResult(SeoSearchResultSummary searchResult)
+        {
+            if (ResultCollection == null)
+            {
+                ResultCollection = new List<SeoSearchResultSummary>();
+            }
+
+            ResultCollection.Add(searchResult);
+        }
     }
 
     public class SeoSearchResultSummary
@@ -17,29 +38,29 @@ namespace SympliSEOTracker.Domain
 
         public SearchEngineType SearchEngineType { get; set; }
 
-        public List<SeoSearchResultCount> SeoSearchResultCountCollection { get; set; }
+        public SeoSearchResultCount SeoSearchResultCount { get; set; }
 
         SeoSearchResultSummary() { }
 
         SeoSearchResultSummary(Guid id,
             DateTime searchedOnUtc,
             SearchEngineType searchEngineType,
-            List<SeoSearchResultCount> seoSearchResultCountCollection)
+            SeoSearchResultCount seoSearchResultCount)
         {
             Id = id;
             SearchedOnUtc = searchedOnUtc;
             SearchEngineType = searchEngineType;
-            SeoSearchResultCountCollection = seoSearchResultCountCollection;
+            SeoSearchResultCount = seoSearchResultCount;
         }
 
         public static SeoSearchResultSummary Initialise(SearchEngineType searchEngineType)
         {
-            return new SeoSearchResultSummary(Guid.NewGuid(), DateTime.UtcNow, searchEngineType, new List<SeoSearchResultCount>());
+            return new SeoSearchResultSummary(Guid.NewGuid(), DateTime.UtcNow, searchEngineType, null);
         }
 
         public void AddSearchResult(SeoSearchResultCount seoSearchResultCount)
         {
-            SeoSearchResultCountCollection.Add(seoSearchResultCount);
+            SeoSearchResultCount = seoSearchResultCount;
         }
     }
 

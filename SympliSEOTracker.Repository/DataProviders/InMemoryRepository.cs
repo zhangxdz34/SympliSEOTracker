@@ -8,5 +8,6 @@ namespace SympliSEOTracker.Repository
     }
     public class InMemorySearchResultRepository : GenericCachedDataProvider<DailySeoSearchResultSet>, ISearchResultRepository
     {
+
     }
 }

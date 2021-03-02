@@ -7,7 +7,7 @@
 
         public static IServiceCollection SetupRepositories(this IServiceCollection services)
         {
-            // services.AddTransient<IUserProvider, UserProvider>();
+            services.AddTransient<ISearchResultRepository, InMemorySearchResultRepository>();
 
             return services;
         }

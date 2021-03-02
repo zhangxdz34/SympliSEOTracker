@@ -17,7 +17,30 @@ namespace SympliSEOTracker.Domain
 
         public SearchEngineType SearchEngineType { get; set; }
 
-        public IList<SeoSearchResultCount> SeoSearchResultCountCollection { get; set; }
+        public List<SeoSearchResultCount> SeoSearchResultCountCollection { get; set; }
+
+        SeoSearchResultSummary() { }
+
+        SeoSearchResultSummary(Guid id,
+            DateTime searchedOnUtc,
+            SearchEngineType searchEngineType,
+            List<SeoSearchResultCount> seoSearchResultCountCollection)
+        {
+            Id = id;
+            SearchedOnUtc = searchedOnUtc;
+            SearchEngineType = searchEngineType;
+            SeoSearchResultCountCollection = seoSearchResultCountCollection;
+        }
+
+        public static SeoSearchResultSummary Initialise(SearchEngineType searchEngineType)
+        {
+            return new SeoSearchResultSummary(Guid.NewGuid(), DateTime.UtcNow, searchEngineType, new List<SeoSearchResultCount>());
+        }
+
+        public void AddSearchResult(SeoSearchResultCount seoSearchResultCount)
+        {
+            SeoSearchResultCountCollection.Add(seoSearchResultCount);
+        }
     }
 
     public class SeoSearchResultCount

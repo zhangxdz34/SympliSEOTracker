@@ -1,8 +1,28 @@
-﻿@{
+﻿@model SympliSEOTracker.Models.DailySeoSearchResultSetViewModel
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Searched On(Utc)</th>
+                <th scope="col">Search Engine</th>
+                <th scope="col">Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var li in Model.SearchResultLineItems)
+            {
+                <tr>
+                    <th scope="row">@li.SearchedOnUtc</th>
+                    <td>@li.SearchEngineType</td>
+                    <td>@li.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

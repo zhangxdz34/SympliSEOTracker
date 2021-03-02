@@ -1,3 +1,12 @@
 SympliSEOTracker/.vs/
 SympliSEOTracker/bin/
 SympliSEOTracker/obj/
+SympliSEOTracker.Repository/bin/
+SympliSEOTracker.Repository/obj/project.assets.json
+SympliSEOTracker.Repository/obj/
+SympliSEOTracker.Domain/bin/Debug/netcoreapp3.1/SympliSEOTracker.Domain.deps.json
+SympliSEOTracker.Domain/bin/
+SympliSEOTracker.Domain/obj/
+SympliSEOTracker.Service/bin/Debug/netcoreapp3.1/SympliSEOTracker.Service.deps.json
+SympliSEOTracker.Service/bin/
+SympliSEOTracker.Service/obj/
